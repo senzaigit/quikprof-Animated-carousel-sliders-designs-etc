@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slider Animation Fixed</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      width: 100%;
+      padding: 15px 50px;
+      background-color: #111;
+      display: flex;
+      align-items: center;
+      z-index: 100;
+      position: relative;
+    }
+
+    header a {
+      color: #eee;
+      text-decoration: none;
+      margin-right: 40px;
+    }
+
+    .carousel {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    .carousel .list {
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
+
+    .carousel .list .item {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .carousel .list .item.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .carousel .list .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      padding-right: 30%;
+      color: #fff;
+      text-shadow: 0 5px 10px #000;
+      opacity: 0;
+      transform: translateY(50px);
+      filter: blur(10px);
+      transition: all 1s ease;
+    }
+
+    .item.active .content {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .title {
+      font-size: 3em;
+      font-weight: bold;
+      margin-top: 15%;
+    }
+
+    .topic {
+      font-size: 2em;
+      color: #f1683a;
+    }
+
+    .des {
+      margin: 20px 0;
+      max-width: 600px;
+      line-height: 1.4;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 14px;
+      font-family: 'Poppins';
+      border: none;
+      cursor: pointer;
+    }
+
+    .buttons button:nth-child(1) {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .buttons button:nth-child(2) {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+    }
+
+    .thumbnail {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 2;
+    }
+
+    .thumbnail .item {
+      width: 100px;
+      height: 70px;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 10px;
+      border: 2px solid transparent;
+    }
+
+    .thumbnail .item.active {
+      border-color: #f1683a;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .arrows {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 30px;
+      z-index: 2;
+    }
+
+    .arrows button {
+      background-color: rgba(255, 255, 255, 0.3);
+      border: none;
+      color: white;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .arrows button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2em;
+      }
+
+      .topic {
+        font-size: 1.5em;
+      }
+
+      .des {
+        font-size: 0.9em;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="carousel">
+    <!-- HEAD STRAP -->
+  <div class="list">
+    <div class="item active">
+      <img src="https://quikprof.com/wp-content/uploads/2025/07/78f16620-361b-4f02-bd18-eb75d7f9e7c1-2-scaled.png">
+      <div class="content">
+        <div class="author">QuikProf</div>
+        <div class="title">HEAD STRAPS</div>
+        <div class="topic">CAMERA ACCESSORIES</div>
+        <div class="des">The QuikProf Headstrap is lightweight, secure, and built for all-day comfort. Perfect fit, zero slip.</div>
+        <div class="buttons">
+          <button onclick="window.location.href='https://quikprof.com/action-camera-accessories/'">SEE MORE</button>
+          <button onclick="window.location.href='https://quikprof.com/product/head-strap/'">BUY NOW</button>
+        </div>
+      </div>
+    </div>
+    <!-- CHEST MOUNT -->
+    <div class="item">
+      <img src="https://quikprof.com/wp-content/uploads/2025/07/0d7c77d0-9437-4a93-9469-d0dd1eab3436-scaled.png">
+      <div class="content">
+        <div class="author">QuikProf</div>
+        <div class="title">CHEST MOUNT</div>
+        <div class="topic">CAMERA ACCESSORIES</div>
+        <div class="des">The QuikProf Chest Mount offers a stable, hands-free fit for action-packed moments. Lightweight, secure, and built for adventure</div>
+        <div class="buttons">
+          <button onclick="window.location.href='https://quikprof.com/action-camera-accessories/'">SEE MORE</button>
+          <button onclick="window.location.href='https://quikprof.com/product/chest-strap/'">BUY NOW</button>
+        </div>
+      </div>
+    </div>
+     <!-- GORILLAPOD -->
+    <div class="item">
+      <img src="https://quikprof.com/wp-content/uploads/2025/07/720d2398-259f-4af2-807a-e96d8cae72e7-scaled.png">
+      <div class="content">
+        <div class="author">QuikProf</div>
+        <div class="title">GORILLAPOD</div>
+        <div class="topic">CAMERA ACCESSORIES</div>
+        <div class="des">The QuikProf Gorillapod is flexible, sturdy, and perfect for any angle. Wrap it, stand it, or hang it—shoot anywhere with ease.</div>
+        <div class="buttons">
+          <button onclick="window.location.href='https://quikprof.com/action-camera-accessories/'">SEE MORE</button>
+          <button onclick="window.location.href='https://quikprof.com/product/lightweight-flexible-gorillapod/'">BUY NOW</button>
+        </div>
+      </div>
+    </div>
+    <!-- EXTENSION TUBE -->
+    <div class="item">
+      <img src="https://quikprof.com/wp-content/uploads/2025/07/4ac327ec-15f4-46c8-8804-d196520368c6-scaled.png">
+      <div class="content">
+        <div class="author">QuikProf</div>
+        <div class="title">EXTENSION TUBE</div>
+        <div class="topic">CAMERA ACCESSORIES</div>
+        <div class="des">The QuikProf Extension Tube adds extra reach with strong, lightweight design. Perfect for wide shots, vlogs, or overhead angles.</div>
+        <div class="buttons">
+          <button onclick="window.location.href='https://quikprof.com/action-camera-accessories/'">SEE MORE</button>
+          <button onclick="window.location.href='https://quikprof.com/product/macro-extension-tube/'">BUY NOW</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- FOR BOTTEM IMAGES -->
+  <div class="thumbnail">
+    <div class="item active"><img src="https://quikprof.com/wp-content/uploads/2025/07/cf34ef7e-47f9-47ed-9ab6-d563f52c3d9c.png"></div>
+    <div class="item"><img src="https://quikprof.com/wp-content/uploads/2025/07/00895d22-63a0-4908-9479-591fc1e73001.png"></div>
+    <div class="item"><img src="https://quikprof.com/wp-content/uploads/2025/07/0936452f-5dc1-45f3-862e-fc2c35ad8ca6-scaled.png"></div>
+    <div class="item"><img src="https://quikprof.com/wp-content/uploads/2025/07/aba48b92-4878-4d20-8820-80a730e711db-scaled.png"></div>
+  </div>
+<!-- ROW -->
+  <div class="arrows">
+    <button id="prev">&lt;</button>
+    <button id="next">&gt;</button>
+  </div>
+</div>
+<!-- JAVASCRIPT -->
+<script>
+  const items = document.querySelectorAll('.carousel .list .item');
+  const thumbs = document.querySelectorAll('.thumbnail .item');
+  const next = document.getElementById('next');
+  const prev = document.getElementById('prev');
+  let active = 0;
+
+  function showSlide(index) {
+    items.forEach(item => item.classList.remove('active'));
+    thumbs.forEach(thumb => thumb.classList.remove('active'));
+    items[index].classList.add('active');
+    thumbs[index].classList.add('active');
+  }
+
+  next.onclick = () => {
+    active = (active + 1) % items.length;
+    showSlide(active);
+  }
+
+  prev.onclick = () => {
+    active = (active - 1 + items.length) % items.length;
+    showSlide(active);
+  }
+
+  thumbs.forEach((thumb, index) => {
+    thumb.onclick = () => {
+      active = index;
+      showSlide(active);
+    }
+  });
+</script>
+
+</body>
+</html>
